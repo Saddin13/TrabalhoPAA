@@ -48,7 +48,7 @@ O programa lê a tabela e constrói uma lista encadeada com base na escolha feit
 
 ### Bloco 6
 **6.1.** Divide ambas as listas passadas ao meio;  
-**6.2.** Junta sublistas já organizadas, comparando os elementos que as compõem;  
+**6.2.** Junta sublistas já organizadas, comparando os elementos que as compõem;     
 **6.3.** Trabalha com os elementos restantes à esquerda;
 **6.4.** Trabalha com os elementos restantes à direita.
 
