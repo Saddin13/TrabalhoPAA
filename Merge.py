@@ -46,16 +46,12 @@ def MergeShortINT(coluna, file_path):
                     j += 1
                 k += 1
             #Bloco 6.3 INT
-            if metade_salva[0] == 0 and len(arr) == tamanho_original:
-                metade_salva[0] = 1
-                mergeexit("metade_organizado", idx, df, file_path)
-            #Bloco 6.4 INT
             while i < len(L):
                 arr[k] = L[i]
                 idx[k] = L_idx[i]
                 i += 1
                 k += 1
-            #Bloco 6.5 INT
+            #Bloco 6.4 INT
             while j < len(R):
                 arr[k] = R[j]
                 idx[k] = R_idx[j]
@@ -65,13 +61,16 @@ def MergeShortINT(coluna, file_path):
     mergeexit("inteiramente_organizado", indices, df, file_path)
 
 def MergeShortChr(coluna, file_path):
+    #Bloco 5
     print("Organizando arquivo por valor string...")
     df = pd.read_excel(file_path)
     valores = list(df.iloc[:, coluna])
     indices = list(range(len(valores)))
     tamanho_original = len(valores)
     metadesalva = [0]
+    #Bloco 6    
     def merge_sort(arr, idx):
+        #Bloco 6.1    
         if len(arr) > 1:
             mid = len(arr) // 2
             L = arr[:mid]
@@ -83,6 +82,7 @@ def MergeShortChr(coluna, file_path):
             merge_sort(R, R_idx)
 
             i = j = k = 0
+            #Bloco 6.2     
             while i < len(L) and j < len(R):
                 if str(L[i]) <= str(R[j]):
                     arr[k] = L[i]
@@ -93,15 +93,13 @@ def MergeShortChr(coluna, file_path):
                     idx[k] = R_idx[j]
                     j += 1
                 k += 1
-            # Salva apenas quando estiver mesclando as duas grandes metades
-            if metadesalva[0] == 0 and len(arr) == tamanho_original:
-                metadesalva[0] = 1
-                mergeexit("metade_organizado", idx, df, file_path)
+            #Bloco 6.3
             while i < len(L):
                 arr[k] = L[i]
                 idx[k] = L_idx[i]
                 i += 1
                 k += 1
+            #Bloco 6.4
             while j < len(R):
                 arr[k] = R[j]
                 idx[k] = R_idx[j]
