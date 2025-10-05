@@ -2,6 +2,7 @@ import os
 import tkinter as tk
 from tkinter import filedialog
 import pandas as pd
+import time
 
 #Bloco 7 INT
 def mergeexit(input,indices,df, file_path):
@@ -9,6 +10,8 @@ def mergeexit(input,indices,df, file_path):
         output_path = os.path.splitext(file_path)[0] +'_'+ input + '.xlsx'
         df_ordenado.to_excel(output_path, index=False)
         print(f"Arquivo organizado salvo em: {output_path}")
+        end = time.time()
+        print(f"Tempo de execução: {end - start:.2f} segundos")
 
 def MergeShortINT(coluna, file_path):
     #Bloco 5 INT
@@ -119,6 +122,7 @@ while True:
     else:
         print("Erro: O arquivo selecionado não é um arquivo Excel (.xls ou .xlsx).")
 print(f"Arquivo selecionado: {file_path}")
+start = time.time()
 #Bloco 2
 while True:
     print("qual coluna da tabela voce quer organizar?")
