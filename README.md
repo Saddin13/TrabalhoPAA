@@ -18,6 +18,7 @@ Acompanha um arquivo de testes (todos os dados daquele arquivo foram retirados d
 
 Bibliotecas usadas: 
 - Tkinter (padrão do Python); 
+- Time (padrão do Python)
 - Pandas (necessário instalar).
 
 ```bash
