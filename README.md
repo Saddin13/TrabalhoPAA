@@ -9,9 +9,10 @@ Implementação do algoritmo de ordenação merge sort em uma lista encadeada, s
 - João Pedro F. A. L. de Miranda
 - Vitor Saddi Ribeiro
 
-## Recomendações
+## Recomendações e ponto importante
 
 O sistema opera a partir de um arquivo XLS ou XLSX e retorna um arquivo no mesmo formato.
+Acompanha um arquivo de testes (todos os dados daquele arquivo foram retirados do Gemini, fizemos a tabela usando a IA da Google Sheets para testes do código)
 
 ## Instalação
 
