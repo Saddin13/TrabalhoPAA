@@ -10,8 +10,6 @@ def mergeexit(input,indices,df, file_path):
         output_path = os.path.splitext(file_path)[0] +'_'+ input + '.xlsx'
         df_ordenado.to_excel(output_path, index=False)
         print(f"Arquivo organizado salvo em: {output_path}")
-        end = time.time()
-        print(f"Tempo de execução: {end - start:.2f} segundos")
 
 def MergeShortINT(coluna, file_path):
     #Bloco 5 INT
@@ -146,3 +144,6 @@ if tipo == 1:
     MergeShortINT(coluna, file_path)
 else:
     MergeShortChr(coluna, file_path)
+
+end = time.time()
+print(f"Tempo de execução: {end - start:.2f} segundos")
