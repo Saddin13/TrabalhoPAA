@@ -3,6 +3,13 @@ import tkinter as tk
 from tkinter import filedialog
 import pandas as pd
 
+#Bloco 7 INT
+def mergeexit(input,indices,df, file_path):
+        df_ordenado = df.iloc[indices].reset_index(drop=True)
+        output_path = os.path.splitext(file_path)[0] +'_'+ input + '.xlsx'
+        df_ordenado.to_excel(output_path, index=False)
+        print(f"Arquivo organizado salvo em: {output_path}")
+
 def MergeShortINT(coluna, file_path):
     #Bloco 5 INT
     print("Organizando arquivo por valor numerico...")
@@ -11,6 +18,7 @@ def MergeShortINT(coluna, file_path):
     valores = list(df.iloc[:, coluna].astype(int))
     indices = list(range(len(valores)))
     #Bloco 6 INT
+    metadesalva = [0]
     def merge_sort(arr, idx):
         if len(arr) > 1:
             #bloco 6.1 INT
@@ -35,6 +43,10 @@ def MergeShortINT(coluna, file_path):
                     idx[k] = R_idx[j]
                     j += 1
                 k += 1
+            #se metade do codigo 
+            if metadesalva[0] == 0:
+                metadesalva[0] = 1
+                mergeexit("metade_organizado",idx,df, file_path)
             #bloco 6.3 INT
             while i < len(L):
                 arr[k] = L[i]
@@ -47,12 +59,9 @@ def MergeShortINT(coluna, file_path):
                 idx[k] = R_idx[j]
                 j += 1
                 k += 1
-    #Bloco 7 INT
-    merge_sort(valores, indices)
-    df_ordenado = df.iloc[indices].reset_index(drop=True)
-    output_path = os.path.splitext(file_path)[0] + '_organizado.xlsx'
-    df_ordenado.to_excel(output_path, index=False)
-    print(f"Arquivo organizado salvo em: {output_path}")
+    merge_sort(valores, indices)                
+    mergeexit("inteiramente_organizado",indices,df, file_path)
+
 
 def MergeShortChr(coluna, file_path):
     #Bloco 5 string
